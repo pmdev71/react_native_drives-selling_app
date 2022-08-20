@@ -12,7 +12,7 @@ import {
   VStack,
 } from 'native-base';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -58,7 +58,15 @@ const LoginScreen = () => {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
+          <Button
+            mt="2"
+            colorScheme="indigo"
+            onPress={() =>
+              navigation.navigate('HomeScreen', {
+                email: email,
+                password: password,
+              })
+            }>
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
@@ -76,7 +84,7 @@ const LoginScreen = () => {
                 fontWeight: 'medium',
                 fontSize: 'sm',
               }}
-              href="#">
+              onPress={() => navigation.navigate('RegistrationScreen')}>
               Sign Up
             </Link>
           </HStack>

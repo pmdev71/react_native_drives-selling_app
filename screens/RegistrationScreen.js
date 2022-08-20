@@ -9,16 +9,15 @@ import {
   FormControl,
   Input,
   Button,
+  HStack,
+  Link,
 } from 'native-base';
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [conPassword, setConPassword] = useState('');
 
-  const handelInput = e => {
-    console.log('Change');
-  };
   return (
     <Center w="100%">
       <Box safeArea p="2" w="90%" maxW="290" py="8">
@@ -60,6 +59,25 @@ const RegistrationScreen = () => {
           <Button mt="2" colorScheme="indigo">
             Sign up
           </Button>
+          <HStack mt="6" justifyContent="center">
+            <Text
+              fontSize="sm"
+              color="coolGray.600"
+              _dark={{
+                color: 'warmGray.200',
+              }}>
+              Already registered ?{' '}
+            </Text>
+            <Link
+              _text={{
+                color: 'indigo.500',
+                fontWeight: 'medium',
+                fontSize: 'sm',
+              }}
+              onPress={() => navigation.navigate('LoginScreen')}>
+              Log In
+            </Link>
+          </HStack>
         </VStack>
       </Box>
     </Center>
