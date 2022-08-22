@@ -1,14 +1,16 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import PackagesList from '../components/PackagesList';
+import {Box, Text} from 'native-base';
 
 const HomeScreen = ({route, navigation}) => {
   const email = route.params.email;
   const password = route.params.password;
   return (
-    <View>
+    <Box>
       <Text>Hello, {email}</Text>
       <Text>Your password is : {password}</Text>
-    </View>
+      <PackagesList />
+    </Box>
   );
 };
 

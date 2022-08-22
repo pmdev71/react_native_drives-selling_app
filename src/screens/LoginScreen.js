@@ -76,7 +76,7 @@ const LoginScreen = ({navigation}) => {
               _dark={{
                 color: 'warmGray.200',
               }}>
-              I'm a new user.{' '}
+              New here?{' '}
             </Text>
             <Link
               _text={{
