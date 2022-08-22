@@ -1,21 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {
   Box,
-  Heading,
-  Avatar,
   HStack,
   VStack,
   Text,
   Spacer,
   FlatList,
-  Skeleton,
-  Center,
+  Image,
+  Button,
+  Icon,
 } from 'native-base';
 import SchelatonPackage from './SchelatonPackage';
+import {useNavigation} from '@react-navigation/native';
 
 const PackagesList = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const navigation = useNavigation();
 
   const avatarUrl =
     'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
@@ -45,7 +47,13 @@ const PackagesList = () => {
     <Box flex={1}>
       {loading ? (
         <Box flex={1}>
-          <SchelatonPackage />;
+          <SchelatonPackage />
+          <SchelatonPackage />
+          <SchelatonPackage />
+          <SchelatonPackage />
+          <SchelatonPackage />
+          <SchelatonPackage />
+          <SchelatonPackage />
         </Box>
       ) : (
         <Box flex={1}>
@@ -58,12 +66,15 @@ const PackagesList = () => {
                   borderColor: 'gray.600',
                 }}
                 borderColor="coolGray.200"
-                pl="4"
+                pl="5"
                 pr="5"
-                py="2">
-                <HStack space={3} justifyContent="space-between">
-                  <Avatar
+                py="2"
+                my="2">
+                <HStack space={4} justifyContent="space-between">
+                  <Image
+                    alt="operator"
                     size="48px"
+                    borderRadius="10"
                     source={{
                       uri: avatarUrl,
                     }}
@@ -86,15 +97,28 @@ const PackagesList = () => {
                     </Text>
                   </VStack>
                   <Spacer />
-                  <Text
-                    fontSize="xs"
-                    _dark={{
-                      color: 'warmGray.50',
-                    }}
-                    color="coolGray.800"
-                    alignSelf="flex-start">
-                    {item.operator}
-                  </Text>
+                  <VStack>
+                    <Text
+                      fontSize="xs"
+                      _dark={{
+                        color: 'warmGray.50',
+                      }}
+                      color="coolGray.800"
+                      alignSelf="flex-start">
+                      {item.operator}
+                    </Text>
+                    <Button
+                      w="20"
+                      mt="1"
+                      small
+                      onPress={() =>
+                        navigation.navigate('DetailsPackageScreen', {
+                          packageInfo: item,
+                        })
+                      }>
+                      <Text>Details</Text>
+                    </Button>
+                  </VStack>
                 </HStack>
               </Box>
             )}

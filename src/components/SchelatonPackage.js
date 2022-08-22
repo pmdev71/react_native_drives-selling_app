@@ -1,6 +1,5 @@
 import {Box, Center, HStack, Skeleton, VStack} from 'native-base';
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
 
 export class SchelatonPackage extends Component {
   render() {
@@ -21,7 +20,7 @@ export class SchelatonPackage extends Component {
             }}
             p="2">
             <Skeleton flex="1" h="50" rounded="md" startColor="indigo.300" />
-            <VStack flex="3" space="2">
+            <VStack flex="5" space="2">
               <Skeleton h="5" startColor="amber.300" />
 
               <HStack space="2" alignItems="center">
