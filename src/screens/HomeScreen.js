@@ -6,9 +6,9 @@ const HomeScreen = ({route, navigation}) => {
   const email = route.params.email;
   const password = route.params.password;
   return (
-    <Box>
-      <Text>Hello, {email}</Text>
-      <Text>Your password is : {password}</Text>
+    <Box flex={1}>
+      {/* <Text>Hello, {email}</Text>
+      <Text>Your password is : {password}</Text> */}
       <PackagesList />
     </Box>
   );
