@@ -15,10 +15,12 @@ import {
   Button,
   Badge,
 } from 'native-base';
+import OrderDetailsConfermation from '../components/OrderDetailsConfermation';
 
 const DetailsPackageScreen = ({route}) => {
   const packageInfo = route.params.packageInfo;
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <ScrollView>
       {/* // <Text> Package ID:{packageInfo._id}</Text>
@@ -140,6 +142,8 @@ const DetailsPackageScreen = ({route}) => {
             <Button
               mt="2"
               colorScheme="indigo"
+              onPress={() => setModalVisible(!modalVisible)}
+
               // onPress={() =>
               //   navigation.navigate('HomeScreen', {
               //     email: email,
@@ -149,6 +153,13 @@ const DetailsPackageScreen = ({route}) => {
             >
               Order Now
             </Button>
+            {modalVisible && (
+              <OrderDetailsConfermation
+                packageInfo={packageInfo}
+                phoneNumber={phoneNumber}
+                modal={modalVisible}
+              />
+            )}
           </Stack>
         </Box>
       </Box>
