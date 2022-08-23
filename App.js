@@ -8,6 +8,7 @@ import RegistrationScreen from './src/screens/RegistrationScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsPackageScreen from './src/screens/DetailsPackageScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
 
 const Stack = createStackNavigator();
 
@@ -52,10 +53,18 @@ const App = () => {
               title: 'Details Package',
             }}
           />
+          <Stack.Screen
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
+            options={{
+              title: 'Forgot Password',
+            }}
+          />
 
           {/* <RegistrationScreen /> */}
           {/* <LoginScreen /> */}
           {/* <DetailsPackageScreen /> */}
+          {/* <ForgotPasswordScreen/> */}
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

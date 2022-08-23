@@ -53,6 +53,7 @@ const LoginScreen = ({navigation}) => {
                 fontWeight: '500',
                 color: 'indigo.500',
               }}
+              onPress={() => navigation.navigate('ForgotPasswordScreen')}
               alignSelf="flex-end"
               mt="1">
               Forget Password?

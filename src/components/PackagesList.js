@@ -109,8 +109,8 @@ const PackagesList = () => {
                     </Text>
                     <Button
                       w="20"
-                      mt="1"
-                      small
+                      mt="2"
+                      size="sm"
                       onPress={() =>
                         navigation.navigate('DetailsPackageScreen', {
                           packageInfo: item,
