@@ -12,13 +12,19 @@ import {
   Badge,
 } from 'native-base';
 
-const OrderDetailsConfermation = ({packageInfo, phoneNumber, modal}) => {
-  const [modalVisible, setModalVisible] = useState(modal);
+const OrderDetailsConfermation = ({
+  packageInfo,
+  phoneNumber,
+  modal,
+  setModal,
+  handleOrder,
+}) => {
+  //   const [modalVisible, setModalVisible] = useState(modal);
   return (
     <>
       <Modal
-        isOpen={modalVisible}
-        onClose={() => setModalVisible(false)}
+        isOpen={modal}
+        onClose={() => setModal(!modal)}
         avoidKeyboard
         justifyContent="center"
         bottom="4"
@@ -195,7 +201,8 @@ const OrderDetailsConfermation = ({packageInfo, phoneNumber, modal}) => {
             <Button
               flex="1"
               onPress={() => {
-                setModalVisible(false);
+                handleOrder();
+                setModal(!modal);
               }}>
               Confirm
             </Button>

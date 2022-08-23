@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Box,
   Heading,
@@ -17,16 +17,23 @@ import {
 } from 'native-base';
 import OrderDetailsConfermation from '../components/OrderDetailsConfermation';
 
-const DetailsPackageScreen = ({route}) => {
+const DetailsPackageScreen = ({route, navigation}) => {
   const packageInfo = route.params.packageInfo;
   const [phoneNumber, setPhoneNumber] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  useEffect(() => {
+    setModalVisible(modalVisible);
+  }, [modalVisible]);
+
+  const handleOrder = () => {
+    navigation.navigate('OrderHistoryScreen');
+  };
   return (
     <ScrollView>
       {/* // <Text> Package ID:{packageInfo._id}</Text>
         // <Text> Package Name:{packageInfo.name}</Text> */}
 
-      <Box alignItems="center" h="100%">
+      <Box flex={1} alignItems="center" h="100%">
         <Box
           overflow="hidden"
           borderColor="coolGray.200"
@@ -90,10 +97,7 @@ const DetailsPackageScreen = ({route}) => {
               nightlife. Bengaluru (also called Bangalore) is the center of
               India's high-tech industry. The city is also known for its parks
               and nightlife. Bengaluru (also called Bangalore) is the center of
-              India's high-tech industry. The city is also known for its parks
-              and nightlife. Bengaluru (also called Bangalore) is the center of
-              India's high-tech industry. The city is also known for its
-              parksgdf dfyhgf ygfd.
+              India's high-tech industry. The city is also known for its parks a
             </Text>
             <HStack
               alignItems="center"
@@ -123,9 +127,13 @@ const DetailsPackageScreen = ({route}) => {
             </HStack>
             <Box alignItems="center">
               <Input
+                maxLength={11}
+                keyboardType="numeric"
                 mt="3"
-                placeholder="Enter number"
+                mb="3"
+                placeholder="Mobile Number"
                 w="75%"
+                h="10"
                 maxWidth="300px"
                 onChangeText={e => setPhoneNumber(e)}
               />
@@ -158,6 +166,8 @@ const DetailsPackageScreen = ({route}) => {
                 packageInfo={packageInfo}
                 phoneNumber={phoneNumber}
                 modal={modalVisible}
+                setModal={setModalVisible}
+                handleOrder={handleOrder}
               />
             )}
           </Stack>

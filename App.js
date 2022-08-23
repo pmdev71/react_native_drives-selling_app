@@ -9,6 +9,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsPackageScreen from './src/screens/DetailsPackageScreen';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+import OrderHistoryScreen from './src/screens/OrderHistoryScreen';
 
 const Stack = createStackNavigator();
 
@@ -60,11 +61,19 @@ const App = () => {
               title: 'Forgot Password',
             }}
           />
+          <Stack.Screen
+            name="OrderHistoryScreen"
+            component={OrderHistoryScreen}
+            options={{
+              title: 'Order History',
+            }}
+          />
 
           {/* <RegistrationScreen /> */}
           {/* <LoginScreen /> */}
           {/* <DetailsPackageScreen /> */}
           {/* <ForgotPasswordScreen/> */}
+          {/* <OrderHistoryScreen /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
