@@ -110,13 +110,14 @@ const PackagesList = () => {
                     <Button
                       w="20"
                       mt="2"
+                      colorScheme="indigo"
                       size="sm"
                       onPress={() =>
                         navigation.navigate('DetailsPackageScreen', {
                           packageInfo: item,
                         })
                       }>
-                      <Text>Details</Text>
+                      Details
                     </Button>
                   </VStack>
                 </HStack>
