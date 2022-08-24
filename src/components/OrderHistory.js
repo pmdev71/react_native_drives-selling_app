@@ -1,15 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Box,
-  HStack,
-  VStack,
-  Text,
-  Spacer,
-  FlatList,
-  Image,
-  Button,
-  Icon,
-} from 'native-base';
+import {Box, HStack, VStack, Text, Spacer, FlatList, Image} from 'native-base';
 import SchelatonPackage from './SchelatonPackage';
 import {useNavigation} from '@react-navigation/native';
 
@@ -18,9 +8,6 @@ const OrderHistory = () => {
   const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation();
-
-  const avatarUrl =
-    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
 
   useEffect(() => {
     setLoading(true);
@@ -33,7 +20,7 @@ const OrderHistory = () => {
     })
       .then(response => response.json())
       .then(responseJson => {
-        setOrders(responseJson);
+        setOrders(responseJson.reverse());
         setLoading(false);
         //console.log(responseJson);
       })
@@ -76,7 +63,7 @@ const OrderHistory = () => {
                     size="48px"
                     borderRadius="10"
                     source={{
-                      uri: avatarUrl,
+                      uri: item.productImage,
                     }}
                   />
                   <VStack>
@@ -86,29 +73,31 @@ const OrderHistory = () => {
                       }}
                       color="coolGray.800"
                       bold>
-                      {item.userName}
+                      {item.productName}
                     </Text>
                     <Text
                       color="coolGray.600"
                       _dark={{
                         color: 'warmGray.200',
                       }}>
-                      Date:{item.createdAt}
+                      {item.createdAt}
                     </Text>
                   </VStack>
                   <Spacer />
                   <VStack>
                     <Text
                       fontSize="xs"
+                      fontWeight="400"
                       _dark={{
                         color: 'warmGray.50',
                       }}
                       color="coolGray.800"
                       alignSelf="flex-start">
-                      {item.paymentStatus}
+                      {item.productDiscountPrice} Tk
                     </Text>
                     <Text
                       fontSize="xs"
+                      fontWeight="500"
                       _dark={{
                         color: 'warmGray.50',
                       }}

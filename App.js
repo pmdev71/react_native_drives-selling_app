@@ -15,68 +15,74 @@ const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerTitleStyle: {
-              fontSize: 15,
-              color: 'red',
-            },
-            headerTitleAlign: 'center',
-          }}>
-          <Stack.Screen
-            name="LoginScreen"
-            component={LoginScreen}
-            options={{
-              title: 'LOGIN',
-            }}
-          />
-          <Stack.Screen
-            name="RegistrationScreen"
-            component={RegistrationScreen}
-            options={{
-              title: 'REGISTRATION',
-            }}
-          />
+    <>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerTitleStyle: {
+                fontSize: 15,
+                color: 'black',
+              },
+              headerTitleAlign: 'center',
+            }}>
+            <Stack.Screen
+              name="LoginScreen"
+              component={LoginScreen}
+              options={{
+                headerShown: false,
+                //   title: 'LOGIN',
+              }}
+            />
+            <Stack.Screen
+              name="RegistrationScreen"
+              component={RegistrationScreen}
+              options={{
+                headerShown: false,
+                //title: 'REGISTRATION',
+              }}
+            />
 
-          <Stack.Screen
-            name="HomeScreen"
-            component={HomeScreen}
-            options={{
-              title: 'HOME',
-            }}
-          />
-          <Stack.Screen
-            name="DetailsPackageScreen"
-            component={DetailsPackageScreen}
-            options={{
-              title: 'Details Package',
-            }}
-          />
-          <Stack.Screen
-            name="ForgotPasswordScreen"
-            component={ForgotPasswordScreen}
-            options={{
-              title: 'Forgot Password',
-            }}
-          />
-          <Stack.Screen
-            name="OrderHistoryScreen"
-            component={OrderHistoryScreen}
-            options={{
-              title: 'Order History',
-            }}
-          />
+            <Stack.Screen
+              name="ForgotPasswordScreen"
+              component={ForgotPasswordScreen}
+              options={{
+                headerShown: false,
+                //title: 'Forgot Password',
+              }}
+            />
+            <Stack.Screen
+              name="HomeScreen"
+              component={HomeScreen}
+              options={{
+                //headerShown: false,
+                title: 'HOME',
+              }}
+            />
+            <Stack.Screen
+              name="DetailsPackageScreen"
+              component={DetailsPackageScreen}
+              options={{
+                title: 'Details Package',
+              }}
+            />
+            <Stack.Screen
+              name="OrderHistoryScreen"
+              component={OrderHistoryScreen}
+              options={{
+                title: 'Order History',
+              }}
+            />
 
-          {/* <RegistrationScreen /> */}
-          {/* <LoginScreen /> */}
-          {/* <DetailsPackageScreen /> */}
-          {/* <ForgotPasswordScreen/> */}
-          {/* <OrderHistoryScreen /> */}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+            {/* <RegistrationScreen /> */}
+            {/* <LoginScreen /> */}
+            {/* <DetailsPackageScreen /> */}
+            {/* <ForgotPasswordScreen/> */}
+            {/* <OrderHistoryScreen /> */}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </>
   );
 };
 

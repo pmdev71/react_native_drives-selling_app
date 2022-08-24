@@ -1,16 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Modal,
-  Button,
-  Input,
-  VStack,
-  Text,
-  FormControl,
-  Center,
-  NativeBaseProvider,
-  HStack,
-  Badge,
-} from 'native-base';
+import {Modal, Button, VStack, Text, HStack, Badge} from 'native-base';
 
 const OrderDetailsConfermation = ({
   packageInfo,
@@ -165,7 +154,7 @@ const OrderDetailsConfermation = ({
                     color: 'warmGray.200',
                   }}
                   fontWeight="700">
-                  {packageInfo.price}
+                  {packageInfo.discountPrice}
                 </Text>
               </VStack>
             </HStack>
@@ -187,12 +176,12 @@ const OrderDetailsConfermation = ({
               </HStack>
               <VStack>
                 <Text
-                  color="coolGray.600"
+                  color="rose.500"
                   _dark={{
                     color: 'warmGray.200',
                   }}
                   fontWeight="700">
-                  {phoneNumber}
+                  +88{phoneNumber}
                 </Text>
               </VStack>
             </HStack>

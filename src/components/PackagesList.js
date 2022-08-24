@@ -76,7 +76,7 @@ const PackagesList = () => {
                     size="48px"
                     borderRadius="10"
                     source={{
-                      uri: avatarUrl,
+                      uri: item.operatorImageThumb,
                     }}
                   />
                   <VStack>
@@ -93,7 +93,7 @@ const PackagesList = () => {
                       _dark={{
                         color: 'warmGray.200',
                       }}>
-                      {item.price} Taka
+                      {item.discountPrice} Taka
                     </Text>
                   </VStack>
                   <Spacer />
@@ -105,7 +105,7 @@ const PackagesList = () => {
                       }}
                       color="coolGray.800"
                       alignSelf="flex-start">
-                      {item.operator}
+                      {item.area}
                     </Text>
                     <Button
                       w="20"

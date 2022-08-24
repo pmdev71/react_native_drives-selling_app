@@ -20,9 +20,9 @@ const RegistrationScreen = ({navigation}) => {
 
   return (
     <Center w="100%">
-      <Box safeArea p="2" w="90%" maxW="290" py="8">
+      <Box safeArea p="2" mt="20%" w="90%" maxW="290" py="8">
         <Heading
-          size="lg"
+          size="xl"
           color="coolGray.800"
           _dark={{
             color: 'warmGray.50',
@@ -39,9 +39,6 @@ const RegistrationScreen = ({navigation}) => {
           fontWeight="medium"
           size="xs">
           Sign up to continue!
-          <Text>Email: {email}</Text>
-          <Text>Pass: {password}</Text>
-          <Text>CPass: {conPassword}</Text>
         </Heading>
         <VStack space={3} mt="5">
           <FormControl>
